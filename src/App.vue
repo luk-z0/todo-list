@@ -2,18 +2,35 @@
   <section class="todoapp">
     <header class="header">
       <h1 class="todo-title">Tarefas</h1>
-      <input-task></input-task>
     </header>
+    <input-task></input-task>
+    <task-list :todo-list="tasks"></task-list>
   </section>
 </template>
 
 <script>
 import InputTask from './components/InputTask.vue'
+import TaskList from './components/TaskList.vue'
+import { Task } from './models/Task'
+
+let tasks = []
+let task = new Task()
+task.completed = false
+task.title = 'Tarefa'
+tasks.push(task)
+tasks.push(task)
+tasks.push(task)
 
 export default {
   name: 'App',
   components: {
-    InputTask
+    InputTask,
+    TaskList
+  },
+  data() {
+    return {
+      tasks: tasks
+    }
   }
 }
 </script>
@@ -36,5 +53,4 @@ export default {
   color: black;
   font-weight: bold;
 }
-
 </style>
