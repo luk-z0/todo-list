@@ -3,7 +3,7 @@
     <header class="header">
       <h1 class="todo-title">Tarefas</h1>
     </header>
-    <input-task></input-task>
+    <input-task @newTask="addTask"></input-task>
     <task-list :todo-list="tasks"></task-list>
   </section>
 </template>
@@ -15,11 +15,7 @@ import { Task } from './models/Task'
 
 let tasks = []
 let task = new Task()
-task.completed = false
-task.title = 'Tarefa'
-tasks.push(task)
-tasks.push(task)
-tasks.push(task)
+
 
 export default {
   name: 'App',
@@ -30,6 +26,11 @@ export default {
   data() {
     return {
       tasks: tasks
+    }
+  },
+  methods: {
+    addTask(task){
+      this.tasks.push(task)
     }
   }
 }
@@ -43,8 +44,11 @@ export default {
 
 .todoapp {
   background-color: #1f6afc;
-  margin: 5%;
-  height: 70%;
+  margin: 2%;
+  padding: 5%;
+  height: 480px;
+  box-shadow: 10px 8px 20px;
+  border-radius: 20px;
 }
 
 .todo-title {
@@ -52,5 +56,6 @@ export default {
   text-align: center;
   color: black;
   font-weight: bold;
+  font-size: xx-large;
 }
 </style>

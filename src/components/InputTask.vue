@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="search-input">
     <input class="new-todo" @keyup.enter="addTask" placeholder="O que precisa ser feito?">
   </div>
 </template>
@@ -13,28 +13,31 @@ export default {
 
     }
   },
-  methods:{
+  methods: {
 
-    addTask($event){
+    addTask($event) {
       let task = new Task()
       let value = $event.target.value
       task.completed = false
       task.title = value
-      console.log(task)
+      this.$emit('newTask',task,)
+      $event.target.value = ''
     }
   }
 }
 </script>
 
 <style>
-
-.new-todo{
-  border-radius: 5px;
-  padding: 1%;
-  margin: 2%;
-  width: 30%;
-  margin-inline-start: 35%;
-  text-align: center;
+.search-input {
+  margin: 4%;
 }
 
+.new-todo {
+  display: block;
+  margin: 0 auto;
+  border-radius: 5px;
+  padding: 1%;
+  width: 50%;
+  text-align: center;
+}
 </style>
