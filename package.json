@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "Lucas Gabriel <lucas1020111940@hotmail.com>",
-  "private": true,
+  "private": false,
+  "public": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
